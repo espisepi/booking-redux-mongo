@@ -1,0 +1,10 @@
+1) () Poner en .env la url de nuestra base de datos mongodb
+2) Crear seeder para alimentar la BD
+2) cambiar el scss y ponerlo mas bonito
+
+Problemas ------------------------------
+
+1) Problema: La variables .env no la localizaba en seeder.js
+    Solucion: poner seeder.js en la raiz del proyecto. Tambien se puede configurar la variable .env ->
+    -> require('dotenv').config({path:__dirname+'/./../../.env'})
+    https://stackoverflow.com/questions/42335016/dotenv-file-is-not-loading-environment-variables

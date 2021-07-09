@@ -1,9 +1,10 @@
+import Reservation from "./components/reservation/Reservation";
 
 
 function App() {
   return (
     <div className="App">
-      <h1>hello world</h1>
+      <Reservation />
     </div>
   );
 }

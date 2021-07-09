@@ -2,3 +2,19 @@
 1) create react app
 2) install node-sass
 3) helloworld sass
+4) Levantamos el backend para proceder a crear el frontend
+5) Levantamos el frontend del proyecto a replicar
+5) Replicamos el frontend de reservas con sass (no redux)
+6) Aplicamos Refactoring en el codigo siguiendo plantilla udemy curso (si redux)
+
+/// ------------
+
+Poner limite de horas a las tareas
+
+Dibujar las vistas a realizar
+
+Pensar en MVP, en este caso el minimo producto viable consiste en la funcionalidad de reserva,
+Una vez que eso nos funcione refactorizamos el codigo
+y nos preocupamos de la parte clean code.
+
+Pero primero escribirlo en sucio si es la primera vez que se monta un sistema. Si ya lo monté una vez y lo refactoricé, utilizar el patron ese como base y no hacerlo de nuevo

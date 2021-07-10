@@ -4,6 +4,7 @@ import {
     Switch,
     Redirect
   } from 'react-router-dom';
+import AdminPage from '../../pages/AdminPage';
 import ReservationPage from '../../pages/ReservationPage';
 import PublicRoute from './PublicRoute';
 
@@ -13,10 +14,15 @@ const AppRouter = () => {
         <Router>
             <div>
                 <Switch>
-                    <PublicRoute
+                    {/* <PublicRoute
                         exact
                         path="/"
                         component={ ReservationPage }
+                    /> */}
+                    <PublicRoute
+                        exact
+                        path="/"
+                        component={ AdminPage }
                     />
                 </Switch>
             </div>

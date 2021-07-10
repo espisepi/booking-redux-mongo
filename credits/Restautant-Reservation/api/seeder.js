@@ -1,5 +1,6 @@
 const connectDB = require("./config/connectDB");
 const Table = require("./models/table").model;
+const Config = require("./models/config").model;
 const fs = require("fs");
 require("dotenv").config();
 const allTables = require("./data/allTables");
@@ -19,10 +20,15 @@ connectDB();
 
 /** Add data To mongodb */
 
+const config = {
+    tablesDefault: []
+}
+
 const importData = async () => {
     try {
         await Table.deleteMany();
         await Table.insertMany(allTables);
+        await Config.insertMany([config])
         console.log('Data Imported!'.green.inverse)
         process.exit();
     } catch (error) {

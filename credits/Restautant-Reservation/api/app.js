@@ -24,6 +24,7 @@ app.use(cookieParser());
 // Routes
 app.use("/availability", require("./routes/availabilityRoute"));
 app.use("/reserve", require("./routes/reservationRoute"));
+app.use("/config", require("./routes/configRoute"));
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", _ => {

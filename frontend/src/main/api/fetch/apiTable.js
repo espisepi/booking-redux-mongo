@@ -3,13 +3,13 @@ import { fetchWithoutToken } from './fetch';
 // date: Date
 export const searchTables = async ({ date }) => {
     try {
-        const resFetch = await fetchWithoutToken('availability', 'POST', date);
-        console.log(resFetch)
+        console.log('search Tables api called')
+        // const resFetch = await fetchWithoutToken('NOconfigNO', 'GET', date);
+        // const res = await resFetch.json();
+        // console.log(res);
     } catch(e) {
-        console.log(e)
+        // console.log(e)
 
     }
 }
-
-
 

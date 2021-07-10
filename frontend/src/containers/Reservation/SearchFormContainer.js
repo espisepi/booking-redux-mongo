@@ -7,7 +7,7 @@ const SearchFormContainer = ({}) => {
 
     const [search, setSearch] = useState({
         date: formatDate(new Date()),
-        time: '11PM',
+        time: '',
         capacityMin: '1',
         location: '',
         tables: []

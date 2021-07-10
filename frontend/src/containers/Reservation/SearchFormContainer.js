@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import SearchForm from '../../components/App/Reservation/SearchForm';
 import { formatDate } from '../../helpers/dateHelper';
+import { searchTables } from '../../main/api/fetch/apiTable';
 
 const SearchFormContainer = ({}) => {
 
@@ -22,7 +23,12 @@ const SearchFormContainer = ({}) => {
     }
 
     const handleSearch = (e) => {
+        e.preventDefault();
         console.log('boton pulsado!');
+
+        const { date } = search;
+
+        searchTables(date)
     }
 
     return (

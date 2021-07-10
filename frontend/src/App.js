@@ -1,8 +1,9 @@
+import AppRouter from "./main/routers/AppRouter";
 
 
 function App() {
   return (
-    <h1>HOLI</h1>
+    <AppRouter />
   );
 }
 

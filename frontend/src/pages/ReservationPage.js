@@ -1,11 +1,12 @@
 import React from 'react'
+import SearchFormContainer from '../containers/Reservation/SearchFormContainer'
 
-const reservationPage = () => {
+const ReservationPage = () => {
     return (
         <div>
-            holaaa
+            <SearchFormContainer />
         </div>
     )
 }
 
-export default reservationPage
+export default ReservationPage

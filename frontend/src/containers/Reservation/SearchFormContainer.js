@@ -9,11 +9,12 @@ const SearchFormContainer = ({}) => {
         date: formatDate(new Date()),
         time: '11PM',
         capacityMin: '1',
-        location: null,
+        location: '',
         tables: []
     });
 
     const onChange = (e) => {
+        console.log(`name: ${e.target.name} ||| value: ${e.target.value}`)
         setSearch({
             ...search,
             [e.target.name] : e.target.value

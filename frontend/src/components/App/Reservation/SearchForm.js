@@ -9,7 +9,11 @@ function SearchForm({ search, onChange, handleSearch }) {
         <div>
             <input type="date" name="date" value={date} onChange={onChange} />
             <input type="number" name="capacityMin" value={capacityMin} onChange={onChange} />
-            {/* <DatePicker value={date} onChange={onChange} /> */}
+            <select name="location" onChange={onChange} value={location}>
+                <option value="">Any Location</option>
+                <option value="outside">Outside</option>
+                <option value="inside">Inside</option>
+            </select>
 
         </div>
     )

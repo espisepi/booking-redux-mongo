@@ -4,8 +4,11 @@
 3) helloworld sass
 4) Levantamos el backend para proceder a crear el frontend
 5) Levantamos el frontend del proyecto a replicar
-5) Replicamos el frontend de reservas con sass (no redux)
-6) Aplicamos Refactoring en el codigo siguiendo plantilla udemy curso (si redux)
+
+*) Replicamos el frontend de reservas con sass (no redux)
+*) Aplicamos Refactoring en el codigo siguiendo plantilla udemy curso (si redux)
+
+6) Añadimos Redux
 
 /// ------------
 
@@ -18,3 +21,12 @@ Una vez que eso nos funcione refactorizamos el codigo
 y nos preocupamos de la parte clean code.
 
 Pero primero escribirlo en sucio si es la primera vez que se monta un sistema. Si ya lo monté una vez y lo refactoricé, utilizar el patron ese como base y no hacerlo de nuevo
+
+/// --------------------
+
+https://redux.js.org/style-guide/style-guide#put-as-much-logic-as-possible-in-reducers
+https://jkettmann.com/how-to-accidentally-mutate-state-and-why-not-to
+https://reactpatterns.com/
+https://www.pluralsight.com/guides/how-to-organize-your-react-+-redux-codebase
+https://redux.js.org/faq/code-structure
+https://github.com/goldbergyoni/nodebestpractices#1-project-structure-practices

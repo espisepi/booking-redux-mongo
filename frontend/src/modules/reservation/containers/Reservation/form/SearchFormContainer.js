@@ -4,14 +4,14 @@ import { formatDate } from '../../../utils/dateUtils';
 // import * as tableService from '../../../main/services/TableService';
 
 // Redux
-import * as tableAction from '../../../main/redux/actions/tablesAvailablesActions';
+import * as tableActions from '../../../main/redux/actions/tableActions';
 import { useDispatch } from 'react-redux';
 
 
 const SearchFormContainer = () => {
 
     const dispatch = useDispatch();
-    const getTablesWithAvailableCheck = (date, time) => dispatch( tableAction.getTablesAvailablesAction(date, time) ); 
+    const getTablesWithAvailableCheck = (date, time) => dispatch( tableActions.getTablesAvailablesAction(date, time) ); 
 
     const [search, setSearch] = useState({
         date: formatDate(new Date()),

@@ -3,7 +3,7 @@ import TableForm from '../../../components/App/Table/TableForm';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import * as tableActions from '../../../main/redux/actions/tablesAvailablesActions';
+import * as tableActions from '../../../main/redux/actions/tableActions';
 
 
 const TableFormContainer = () => {

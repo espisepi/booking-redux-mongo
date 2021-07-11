@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import SearchForm from '../../../components/App/Reservation/SearchForm';
 import { formatDate } from '../../../utils/dateUtils';
 import { searchTables } from '../../../main/services/TableService';
 
-const SearchFormContainer = ({}) => {
+const SearchFormContainer = () => {
 
     const [search, setSearch] = useState({
         date: formatDate(new Date()),
@@ -36,10 +35,6 @@ const SearchFormContainer = ({}) => {
             <SearchForm search={search} onChange={onChange} handleSearch={handleSearch} />
         </div>
     )
-}
-
-SearchFormContainer.propTypes = {
-
 }
 
 export default SearchFormContainer

@@ -1,16 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
+import * as tableService from '../../../main/services/TableService';
 
-function SearchedTableListContainer(props) {
+function SearchedTableListContainer() {
+
+    useEffect(()=>{
+        const getTables = async () => {
+            const tables = await tableService.getTablesWithAvailableCheck()
+            console.log(tables);
+        };
+        getTables();
+    })
+
     return (
         <div>
             
         </div>
     )
-}
-
-SearchedTableListContainer.propTypes = {
-
 }
 
 export default SearchedTableListContainer

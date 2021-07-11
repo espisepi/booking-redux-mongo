@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import * as tableService from '../../../main/services/TableService';
 
-const TableFormContainer = ({}) => {
+const TableFormContainer = () => {
 
     const [ form, setForm ] = useState({
         name: '',
@@ -26,7 +25,7 @@ const TableFormContainer = ({}) => {
         tableService.createTable(table);
     }
 
-    const { name, capacity, isAvailable, location } = form;
+    const { name, capacity } = form;
 
     return (
         <div>
@@ -36,10 +35,6 @@ const TableFormContainer = ({}) => {
             <button type="button" onClick={handleSubmit} >Crear</button>
         </div>
     )
-}
-
-TableFormContainer.propTypes = {
-
 }
 
 export default TableFormContainer

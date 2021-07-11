@@ -1,8 +1,7 @@
 import React from 'react'
 import {
     BrowserRouter as Router,
-    Switch,
-    Redirect
+    Switch
   } from 'react-router-dom';
 import AdminPage from '../../pages/AdminPage';
 import ReservationPage from '../../pages/ReservationPage';

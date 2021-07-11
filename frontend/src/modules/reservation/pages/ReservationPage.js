@@ -1,10 +1,10 @@
 import React from 'react'
-import SearchFormContainer from '../containers/Reservation/SearchFormContainer'
+import ReservationContainer from '../containers/Reservation/ReservationContainer';
 
 const ReservationPage = () => {
     return (
         <div>
-            <SearchFormContainer />
+            <ReservationContainer />
         </div>
     )
 }

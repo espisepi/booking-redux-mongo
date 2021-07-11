@@ -48,7 +48,7 @@ export const getTables = async () => {
 
 export const createTable = async ( table ) => {
     try {
-        const res = save(table)
+        const res = await save(table)
         return res;
     } catch (e) {
         console.error(e);

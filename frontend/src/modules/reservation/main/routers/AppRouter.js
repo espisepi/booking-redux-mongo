@@ -14,14 +14,14 @@ const AppRouter = () => {
         <Router>
             <div>
                 <Switch>
-                    {/* <PublicRoute
-                        exact
-                        path="/"
-                        component={ ReservationPage }
-                    /> */}
                     <PublicRoute
                         exact
                         path="/"
+                        component={ ReservationPage }
+                    />
+                    <PublicRoute
+                        exact
+                        path="/admin"
                         component={ AdminPage }
                     />
                 </Switch>

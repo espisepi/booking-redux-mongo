@@ -10,5 +10,6 @@ export function tableSanitize( table ) {
 }
 
 export function tablesSanitize( tables ) {
-    return tables.map( table => ( tableSanitize(table) ) );
+    if(Array.isArray(tables)) { return tables.map( table => ( tableSanitize(table) ) ); }
+    return tableSanitize(tables);
 }

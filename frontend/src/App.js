@@ -1,4 +1,4 @@
-import AppRouter from "./main/routers/AppRouter";
+import AppRouter from "./modules/reservation/main/routers/AppRouter";
 
 
 function App() {

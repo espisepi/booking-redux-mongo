@@ -26,6 +26,7 @@ Pero primero escribirlo en sucio si es la primera vez que se monta un sistema. S
 
 https://redux.js.org/style-guide/style-guide#put-as-much-logic-as-possible-in-reducers
 https://jkettmann.com/how-to-accidentally-mutate-state-and-why-not-to
+https://dev.to/gkhan205/best-scalable-react-app-architecture-2020-9fn
 https://reactpatterns.com/
 https://www.pluralsight.com/guides/how-to-organize-your-react-+-redux-codebase
 https://redux.js.org/faq/code-structure

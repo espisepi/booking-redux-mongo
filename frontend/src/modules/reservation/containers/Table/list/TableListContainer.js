@@ -17,11 +17,9 @@ const TableListContainer = () => {
     useEffect(() => {
 
         getTables();
-        
+
     }, [])
-
-    // console.log(tables)  Se renderiza infinito
-
+    
 
     return (
         <div>

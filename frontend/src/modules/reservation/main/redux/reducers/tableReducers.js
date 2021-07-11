@@ -17,7 +17,8 @@ import {
 
     TABLE_DELETE_REQUEST,
     TABLE_DELETE_SUCCESS,
-    TABLE_DELETE_FAIL
+    TABLE_DELETE_FAIL,
+    TABLE_UPDATE_ACTIVE
 } from '../types/types';
 
 
@@ -60,7 +61,7 @@ export const tableListReducer = ( state = { tables: [] }, action ) => {
 export const tableCreateReducer = ( state = {}, action ) => {
     switch (action.type) {
         case TABLE_CREATE_REQUEST:
-            return { loading: true };
+            return { loading: true }
         case TABLE_CREATE_SUCCESS:
             return { loading: false, success: true, table: action.payload }
         case TABLE_CREATE_FAIL:
@@ -74,8 +75,10 @@ export const tableCreateReducer = ( state = {}, action ) => {
 
 export const tableUpdateReducer = ( state = { table: {} }, action) => {
     switch (action.type) {
+        case TABLE_UPDATE_ACTIVE:
+            return { table: action.payload }
         case TABLE_UPDATE_REQUEST:
-            return { loading: true };
+            return { loading: true }
         case TABLE_UPDATE_SUCCESS:
             return { loading: false, success: true, table: action.payload }
         case TABLE_UPDATE_FAIL:

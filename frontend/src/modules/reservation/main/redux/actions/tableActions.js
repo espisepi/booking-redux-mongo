@@ -10,6 +10,7 @@ import {
     TABLE_CREATE_FAIL,
     TABLE_CREATE_RESET,
 
+    TABLE_UPDATE_ACTIVE,
     TABLE_UPDATE_REQUEST,
     TABLE_UPDATE_SUCCESS,
     TABLE_UPDATE_FAIL,
@@ -67,6 +68,13 @@ const tableCreateFail = (error) => {
     }
 }
 
+const tableUpdateActive = (table) => {
+    return {
+        type: TABLE_UPDATE_ACTIVE,
+        payload: table
+    }
+}
+
 const tableUpdateRequest = () => {
     return {
         type: TABLE_UPDATE_REQUEST
@@ -82,6 +90,11 @@ const tableUpdateFail = (error) => {
     return {
         type: TABLE_UPDATE_FAIL,
         payload: error
+    }
+}
+const tableUpdateReset = () => {
+    return {
+        type: TABLE_UPDATE_RESET
     }
 }
 
@@ -141,11 +154,20 @@ export const createTable = (table) => async (dispatch) => {
     }
 }
 
+export const activeTable = (table) => async (dispatch) => {
+    try {
+        dispatch(tableUpdateActive(table));
+    } catch (e) {
+        dispatch(tableUpdateFail(e));
+    }
+}
+
 export const updateTable = (table) => async (dispatch) => {
     try {
         dispatch(tableUpdateRequest());
         const res = await tableService.updateTable(table);
         dispatch(tableUpdateSuccess(res));
+        dispatch(tableUpdateReset()); // reset table update
         dispatch(getTables()) // update tables list
     } catch (e) {
         console.error(e);

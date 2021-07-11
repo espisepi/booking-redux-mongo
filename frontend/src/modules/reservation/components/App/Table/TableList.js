@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TableList = ({tables, loading, error, deleteTable}) => {
+const TableList = ({tables, loading, error, deleteTable, editTable}) => {
 
     if( loading ) { return <h1>Loading</h1> }
 
@@ -18,6 +18,7 @@ const TableList = ({tables, loading, error, deleteTable}) => {
                     <h4>capacity: {table.capacity}</h4>
                     { table?.reservation ? (<h4>Reservada</h4>) : (<h4>No Reservada</h4>)}
                     { deleteTable && <button type="button" onClick={ () => deleteTable(table.id) }>delete</button> }
+                    { editTable && <button type="button" onClick={ () => editTable(table) }>edit</button> }
 
                 </div>
             )) }
@@ -41,7 +42,8 @@ TableList.propTypes = {
     })),
     loading: PropTypes.bool,
     error: PropTypes.string,
-    deleteTable: PropTypes.func
+    deleteTable: PropTypes.func,
+    editTable: PropTypes.func
 }
 
 export default TableList

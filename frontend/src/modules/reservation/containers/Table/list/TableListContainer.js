@@ -8,22 +8,26 @@ import * as tableActions from '../../../main/redux/actions/tableActions';
 const TableListContainer = () => {
 
     const dispatch = useDispatch();
+
+    const editTable = (table) => dispatch( tableActions.activeTable(table) );
+
     const deleteTable = (id) => dispatch( tableActions.deleteTable(id) );
-    const getTables = () => dispatch( tableActions.getTables() );
+
+    const listTables = () => dispatch( tableActions.getTables() );
 
     const {loading, tables, error} = useSelector( state => state.tableList );
 
 
     useEffect(() => {
 
-        getTables();
+        listTables();
 
     }, [])
     
 
     return (
         <div>
-            <TableList tables={tables} loading={loading} deleteTable={deleteTable} />
+            <TableList tables={tables} loading={loading} error={error} deleteTable={deleteTable} editTable={editTable} />
         </div>
     )
 }

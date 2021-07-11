@@ -17,39 +17,39 @@
   ],
   "tables": [
     {
-      "name": "adasd",
-      "capacity": "46",
-      "isAvailable": "false",
+      "name": "adasdwwwqqq",
+      "capacity": 46,
+      "isAvailable": true,
       "location": "",
       "id": 6
     },
     {
-      "name": "aaaa",
-      "capacity": "4",
-      "isAvailable": "false",
-      "location": "",
-      "id": 13
-    },
-    {
-      "name": "rrr",
-      "capacity": "4",
-      "isAvailable": "false",
-      "location": "",
-      "id": 15
-    },
-    {
-      "name": "www",
-      "capacity": "4",
-      "isAvailable": "false",
+      "name": "wwwss",
+      "capacity": 4444,
+      "isAvailable": true,
       "location": "",
       "id": 16
     },
     {
       "name": "wwwee",
-      "capacity": "4",
-      "isAvailable": "false",
+      "capacity": "455222",
+      "isAvailable": true,
       "location": "",
       "id": 17
+    },
+    {
+      "name": "name table",
+      "capacity": "4333",
+      "isAvailable": "false",
+      "location": "",
+      "id": 18
+    },
+    {
+      "name": "name table",
+      "capacity": "4333",
+      "isAvailable": "false",
+      "location": "",
+      "id": 19
     }
   ]
 }

@@ -1,5 +1,15 @@
 import {
-    UPDATE_TABLES_AVAILABLES
+    UPDATE_TABLES_AVAILABLES,
+    
+    TABLE_CREATE_REQUEST,
+    TABLE_CREATE_SUCCESS,
+    TABLE_CREATE_FAIL,
+    TABLE_CREATE_RESET,
+
+    TABLE_UPDATE_REQUEST,
+    TABLE_UPDATE_SUCCESS,
+    TABLE_UPDATE_FAIL,
+    TABLE_UPDATE_RESET
 } from '../types/types';
 import * as tableService from '../../services/TableService';
 
@@ -9,6 +19,42 @@ const updateTablesAvailables = (tablesAvailables) => {
     return {
         type: UPDATE_TABLES_AVAILABLES,
         payload: tablesAvailables
+    }
+}
+
+const tableCreateRequest = () => {
+    return {
+        type: TABLE_CREATE_REQUEST
+    }
+}
+const tableCreateSuccess = (table) => {
+    return {
+        type: TABLE_CREATE_SUCCESS,
+        payload: table
+    }
+}
+const tableCreateFail = (error) => {
+    return {
+        type: TABLE_CREATE_FAIL,
+        payload: error
+    }
+}
+
+const tableUpdateRequest = () => {
+    return {
+        type: TABLE_UPDATE_REQUEST
+    }
+}
+const tableUpdateSuccess = (table) => {
+    return {
+        type: TABLE_UPDATE_SUCCESS,
+        payload: table
+    }
+}
+const tableUpdateFail = (error) => {
+    return {
+        type: TABLE_UPDATE_FAIL,
+        payload: error
     }
 }
 
@@ -25,5 +71,27 @@ export function getTablesAvailablesAction(date, time) {
             //dispatch( updateError(true) )
         }
 
+    }
+}
+
+export const createTable = (table) => async (dispatch) => {
+    try {
+        dispatch(tableCreateRequest());
+        const res = await tableService.createTable(table);
+        dispatch(tableCreateSuccess(res));
+    } catch (e) {
+        console.error(e);
+        dispatch(tableCreateFail(`error in createTable action: ${e}`));
+    }
+}
+
+export const updateTable = (table) => async (dispatch) => {
+    try {
+        dispatch(tableUpdateRequest());
+        const res = await tableService.updateTable(table);
+        dispatch(tableUpdateSuccess(res));
+    } catch (e) {
+        console.error(e);
+        dispatch(tableUpdateFail(`error in updateTable action: ${e}`));
     }
 }

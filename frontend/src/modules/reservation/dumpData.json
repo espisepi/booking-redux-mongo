@@ -1,5 +1,4 @@
 {
-
   "reservations": [
     {
       "date": "2021-07-11T09:00:00",
@@ -16,7 +15,6 @@
       "email": "miguel@gmail.com"
     }
   ],
-
   "tables": [
     {
       "id": "1",
@@ -49,6 +47,48 @@
       "isAvailable": "true",
       "location": "",
       "default": "true"
+    },
+    {
+      "name": "",
+      "capacity": "4",
+      "isAvailable": "false",
+      "location": "",
+      "id": "SMIcJ0x"
+    },
+    {
+      "name": "",
+      "capacity": "4",
+      "isAvailable": "false",
+      "location": "",
+      "id": "hJsLN-u"
+    },
+    {
+      "name": "asdasdasd",
+      "capacity": "4",
+      "isAvailable": "false",
+      "location": "",
+      "id": "NIBctJA"
+    },
+    {
+      "name": "yhyh",
+      "capacity": "4",
+      "isAvailable": "false",
+      "location": "",
+      "id": "-b5xBTP"
+    },
+    {
+      "name": "yhyhaa",
+      "capacity": "4",
+      "isAvailable": "false",
+      "location": "",
+      "id": "SDY7ceZ"
+    },
+    {
+      "name": "deefe",
+      "capacity": "4",
+      "isAvailable": "false",
+      "location": "",
+      "id": "pMgmLAn"
     }
   ]
 }

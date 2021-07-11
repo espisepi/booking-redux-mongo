@@ -1,7 +1,17 @@
 import React, { useState } from 'react'
-import * as tableService from '../../../main/services/TableService';
+import TableForm from '../../../components/App/Table/TableForm';
+
+// Redux
+import { useDispatch } from 'react-redux';
+import * as tableActions from '../../../main/redux/actions/tablesAvailablesActions';
+
 
 const TableFormContainer = () => {
+
+    const dispatch = useDispatch();
+    const createTable = (table) => dispatch( tableActions.createTable(table) ); 
+    const updateTable = (table) => dispatch( tableActions.updateTable(table) );
+    
 
     const [ form, setForm ] = useState({
         name: '',
@@ -11,7 +21,6 @@ const TableFormContainer = () => {
     });
 
     const onChange = (e) => {
-        // console.log(`name: ${e.target.name} ||| value: ${e.target.value}`)
         setForm({
             ...form,
             [e.target.name] : e.target.value
@@ -22,18 +31,20 @@ const TableFormContainer = () => {
         const table = {
             ...form
         };
-        tableService.createTable(table);
+
+        console.log(table.id)
+
+        if(table.id){
+            updateTable(table);
+        } else {
+            createTable(table);
+        }
     }
 
     const { name, capacity } = form;
 
     return (
-        <div>
-            <input type="text" name="name" value={name} onChange={onChange} />
-            <input type="number" name="capacity" value={capacity} onChange={onChange} />
-
-            <button type="button" onClick={handleSubmit} >Crear</button>
-        </div>
+        <TableForm table={form} onChange={onChange} handleSubmit={handleSubmit} />
     )
 }
 

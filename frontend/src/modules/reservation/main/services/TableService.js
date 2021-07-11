@@ -41,17 +41,6 @@ export const getById = async ( id ) => {
     }
 }
 
-export const save = async ( table ) => {
-    try {
-        const resFetch = await fetchWithoutToken(`tables`, 'POST', table );
-        const res = await resFetch.json();
-        const resSanitized = tablesSanitize( res );
-        return resSanitized;
-    } catch (e) {
-        console.error(e);
-    }
-}
-
 export const getTables = async () => {
     try {
         const resFetch = await fetchWithoutToken('tables');
@@ -72,4 +61,24 @@ export const createTable = async ( table ) => {
     }
 }
 
+export const updateTable = async (table) => {
+    try {
+        const resFetch = await fetchWithoutToken(`tables/${table.id}`, 'PUT', table );
+        const res = await resFetch.json();
+        const resSanitized = tablesSanitize(res);
+        return resSanitized;
+    } catch (e) {
+        console.error(e);
+    }
+}
 
+export const save = async ( table ) => {
+    try {
+        const resFetch = await fetchWithoutToken(`tables`, 'POST', table );
+        const res = await resFetch.json();
+        const resSanitized = tablesSanitize( res );
+        return resSanitized;
+    } catch (e) {
+        console.error(e);
+    }
+}

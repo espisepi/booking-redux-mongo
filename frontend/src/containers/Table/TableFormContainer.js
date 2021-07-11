@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { createTable } from '../../main/api/fetch/apiAdminConfig';
+import { createTable } from '../../main/services/ConfigService';
 
 const TableFormContainer = ({}) => {
 

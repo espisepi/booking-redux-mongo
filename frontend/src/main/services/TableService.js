@@ -1,4 +1,4 @@
-import { fetchWithoutToken } from './fetch';
+import { fetchWithoutToken } from './fetch/fetch';
 
 // date: Date
 export const searchTables = async ({ date }) => {

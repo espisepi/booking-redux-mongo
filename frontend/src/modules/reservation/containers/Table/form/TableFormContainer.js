@@ -32,7 +32,6 @@ const TableFormContainer = () => {
             setForm(initialFormValues);
             setEditMode(false)
         }
-        console.log('ooo')
     }, [tableActive]);
 
     const onChange = (e) => {

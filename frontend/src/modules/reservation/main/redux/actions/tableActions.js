@@ -1,5 +1,9 @@
 import {
     UPDATE_TABLES_AVAILABLES,
+
+    TABLE_LIST_REQUEST,
+    TABLE_LIST_SUCCESS,
+    TABLE_LIST_FAIL,
     
     TABLE_CREATE_REQUEST,
     TABLE_CREATE_SUCCESS,
@@ -24,6 +28,24 @@ const updateTablesAvailables = (tablesAvailables) => {
     return {
         type: UPDATE_TABLES_AVAILABLES,
         payload: tablesAvailables
+    }
+}
+
+const tableListRequest = () => {
+    return {
+        type: TABLE_LIST_REQUEST
+    }
+}
+const tableListSuccess = (tables) => {
+    return {
+        type: TABLE_LIST_SUCCESS,
+        payload: tables
+    }
+}
+const tableListFail = (error) => {
+    return {
+        type: TABLE_LIST_FAIL,
+        payload: error
     }
 }
 
@@ -96,11 +118,23 @@ export function getTablesAvailablesAction(date, time) {
     }
 }
 
+export const getTables = () => async (dispatch) => {
+    try {
+        dispatch(tableListRequest());
+        const res = await tableService.getTables();
+        dispatch(tableListSuccess(res));
+    } catch (e) {
+        console.error(e);
+        dispatch(tableListFail(e));
+    }
+}
+
 export const createTable = (table) => async (dispatch) => {
     try {
         dispatch(tableCreateRequest());
         const res = await tableService.createTable(table);
         dispatch(tableCreateSuccess(res));
+        dispatch(getTables()) // update tables list
     } catch (e) {
         console.error(e);
         dispatch(tableCreateFail(`error in createTable action: ${e}`));
@@ -112,6 +146,7 @@ export const updateTable = (table) => async (dispatch) => {
         dispatch(tableUpdateRequest());
         const res = await tableService.updateTable(table);
         dispatch(tableUpdateSuccess(res));
+        dispatch(getTables()) // update tables list
     } catch (e) {
         console.error(e);
         dispatch(tableUpdateFail(`error in updateTable action: ${e}`));
@@ -123,6 +158,7 @@ export const deleteTable = (id) => async (dispatch) => {
         dispatch(tableDeleteRequest());
         await tableService.deleteTable(id);
         dispatch(tableDeleteSuccess());
+        dispatch(getTables()) // update tables list
     } catch (e) {
         console.error(e);
         dispatch(tableDeleteFail(`error in updateTable action: ${e}`));

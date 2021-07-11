@@ -1,6 +1,10 @@
 import {
     UPDATE_TABLES_AVAILABLES,
 
+    TABLE_LIST_REQUEST,
+    TABLE_LIST_SUCCESS,
+    TABLE_LIST_FAIL,
+
     TABLE_CREATE_REQUEST,
     TABLE_CREATE_SUCCESS,
     TABLE_CREATE_FAIL,
@@ -9,7 +13,11 @@ import {
     TABLE_UPDATE_REQUEST,
     TABLE_UPDATE_SUCCESS,
     TABLE_UPDATE_FAIL,
-    TABLE_UPDATE_RESET
+    TABLE_UPDATE_RESET,
+
+    TABLE_DELETE_REQUEST,
+    TABLE_DELETE_SUCCESS,
+    TABLE_DELETE_FAIL
 } from '../types/types';
 
 
@@ -33,7 +41,23 @@ export function TablesAvailablesReducer( state = initialState, action ) {
     }
 }
 
-export const tableCreateReducer = ( state = {}, action) => {
+export const tableListReducer = ( state = { tables: [] }, action ) => {
+    switch (action.type) {
+        case TABLE_LIST_REQUEST:
+          return { loading: true, tables: [] }
+        case TABLE_LIST_SUCCESS:
+          return {
+            loading: false,
+            tables: action.payload
+          }
+        case TABLE_LIST_FAIL:
+          return { loading: false, error: action.payload }
+        default:
+          return state
+      }
+}
+
+export const tableCreateReducer = ( state = {}, action ) => {
     switch (action.type) {
         case TABLE_CREATE_REQUEST:
             return { loading: true };
@@ -58,6 +82,19 @@ export const tableUpdateReducer = ( state = { table: {} }, action) => {
             return { loading: false, error: action.payload }
         case TABLE_UPDATE_RESET:
             return {}
+        default:
+            return state;
+    }
+}
+
+export const tableDeleteReducer = ( state = { table: {} }, action) => {
+    switch (action.type) {
+        case TABLE_DELETE_REQUEST:
+            return { loading: true };
+        case TABLE_DELETE_SUCCESS:
+            return { loading: false, success: true }
+        case TABLE_DELETE_FAIL:
+            return { loading: false, error: action.payload }
         default:
             return state;
     }

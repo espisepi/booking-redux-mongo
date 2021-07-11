@@ -32,16 +32,12 @@ const TableFormContainer = () => {
             ...form
         };
 
-        console.log(table.id)
-
         if(table.id){
             updateTable(table);
         } else {
             createTable(table);
         }
     }
-
-    const { name, capacity } = form;
 
     return (
         <TableForm table={form} onChange={onChange} handleSubmit={handleSubmit} />

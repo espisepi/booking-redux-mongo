@@ -1,32 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import * as tableService from '../../../main/services/TableService';
+import React, { useEffect } from 'react';
 import TableList from '../../../components/App/Table/TableList';
 
 // Redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as tableActions from '../../../main/redux/actions/tableActions';
 
 const TableListContainer = () => {
 
     const dispatch = useDispatch();
-    const deleteTable = (id) => dispatch( tableActions.deleteTable(id) ); 
+    const deleteTable = (id) => dispatch( tableActions.deleteTable(id) );
+    const getTables = () => dispatch( tableActions.getTables() );
 
-    const [ tables, setTables ] = useState();
+    const {loading, tables} = useSelector( state => state.tableList );
 
 
     useEffect(() => {
 
-        const getConfig = async () => {
-            const tables = await tableService.getTables();
-            
-            if(tables) {
-                setTables(tables);
-            }
-        }
-
-        getConfig();
-
-    }, [tables])
+        getTables();
+        
+    }, [])
 
     // console.log(tables)  Se renderiza infinito
 

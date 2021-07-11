@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { createTable } from '../../main/services/ConfigService';
+import * as tableService from '../../main/services/TableService';
 
 const TableFormContainer = ({}) => {
 
@@ -23,7 +23,7 @@ const TableFormContainer = ({}) => {
         const table = {
             ...form
         };
-        createTable(table);
+        tableService.createTable(table);
     }
 
     const { name, capacity, isAvailable, location } = form;

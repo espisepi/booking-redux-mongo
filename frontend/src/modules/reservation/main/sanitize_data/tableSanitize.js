@@ -6,7 +6,6 @@ export function tableSanitize( table ) {
         ...table,
         capacity: parseInt(table.capacity),
         isAvailable: table.isAvailable === 'true', // convert to boolean type
-        default: table.default === 'true',
     }
 }
 

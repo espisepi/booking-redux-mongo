@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import {getTablesDefault} from '../../main/services/ConfigService';
+import * as tableService from '../../main/services/TableService';
 import TableList from '../../components/App/Table/TableList';
 
 const TableListContainer = props => {
@@ -10,7 +10,7 @@ const TableListContainer = props => {
     useEffect(() => {
 
         const getConfig = async () => {
-            const tables = await getTablesDefault();
+            const tables = await tableService.getTables();
             console.log(tables)
             if(tables) {
                 setTables(tables);

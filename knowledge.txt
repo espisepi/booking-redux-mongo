@@ -30,3 +30,8 @@ https://reactpatterns.com/
 https://www.pluralsight.com/guides/how-to-organize-your-react-+-redux-codebase
 https://redux.js.org/faq/code-structure
 https://github.com/goldbergyoni/nodebestpractices#1-project-structure-practices
+https://medium.com/swlh/protect-your-javascript-applications-from-api-data-401a73c7c80b
+
+// Scalable pattern react
+https://saurabhshah23.medium.com/react-js-architecture-features-folder-structure-design-pattern-70b7b9103f22
+https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0

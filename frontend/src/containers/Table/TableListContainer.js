@@ -10,7 +10,9 @@ const TableListContainer = props => {
         const getConfig = async () => {
             const config = await findOne();
             console.log(config);
-            setTables(config.tablesDefault);
+            if(config?.tablesDefault) {
+                setTables(config.tablesDefault);
+            }
         }
         getConfig();
     }, [])

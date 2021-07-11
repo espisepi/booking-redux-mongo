@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import TablesAvailableReducer from './tablesAvailableReducer';
+import TablesAvailablesReducer from './tablesAvailablesReducer';
 
 export default combineReducers({
-    tablesAvailable: TablesAvailableReducer,
+    tablesAvailables: TablesAvailablesReducer,
 });

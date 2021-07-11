@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react'
-// import * as tableService from '../../../main/services/TableService';
+import TableList from '../../../components/App/Table/TableList';
+
+// Redux
+import { useSelector } from 'react-redux';
 
 function SearchedTableListContainer() {
+
+    const tablesAvailables = useSelector( state => state.tablesAvailables.tablesAvailables );
 
     useEffect(()=>{
         // const getTables = async () => {
@@ -13,7 +18,7 @@ function SearchedTableListContainer() {
 
     return (
         <div>
-            Listar
+            <TableList tables={tablesAvailables} />
         </div>
     )
 }

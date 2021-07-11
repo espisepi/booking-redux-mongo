@@ -4,13 +4,14 @@ import PropTypes from 'prop-types'
 const TableList = ({tables}) => {
 
     if(!Array.isArray(tables) || tables.length === 0 ) { return <h1>Tabla vacia</h1> }
-
+    
     return (
         <div>
             { tables?.length !== 0 && tables.map( table => (
                 <div key={table.id}>
                 <h1>{table.name}</h1>
                 <h4>capacity: {table.capacity}</h4>
+                { table?.reservation ? (<h4>Reservada</h4>) : (<h4>No Reservada</h4>)}
                 </div>
             )) }
         </div>
@@ -22,7 +23,14 @@ TableList.propTypes = {
         name: PropTypes.string.isRequired,
         capacity: PropTypes.number.isRequired,
         isAvailable: PropTypes.bool,
-        location: PropTypes.string
+        location: PropTypes.string,
+        reservation: PropTypes.shape({
+            date: PropTypes.date,
+            table: PropTypes.string,
+            name: PropTypes.string,
+            phone: PropTypes.string,
+            email: PropTypes.string
+        })
     }))
 }
 

@@ -1,5 +1,5 @@
 import {
-    GET_TABLES_AVAILABLES
+    UPDATE_TABLES_AVAILABLES
 } from '../types/types';
 
 
@@ -9,9 +9,9 @@ const initialState = {
     loading: false
 }
 
-export default function TablesAvailableReducer( state = initialState, action ) {
+export default function TablesAvailablesReducer( state = initialState, action ) {
     switch(action.type) {
-        case GET_TABLES_AVAILABLES:
+        case UPDATE_TABLES_AVAILABLES:
             return {
                 ...state,
                 tablesAvailables: action.payload,

@@ -1,6 +1,6 @@
 
 
-const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:3005';
+const baseUrl = process.env.RESERVATION_BACKEND_URL || 'http://localhost:4000';
 
 const fetchWithoutToken = ( endpoint, method = 'GET', data ) => {
 

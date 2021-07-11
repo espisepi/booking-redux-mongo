@@ -1,4 +1,4 @@
-import { fetchWithoutToken } from './fetch/fetch';
+import { fetchWithoutToken } from '../../utils/fetch';
 
 export const findOne = async () => {
     try {

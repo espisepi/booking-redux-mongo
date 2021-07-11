@@ -1,0 +1,52 @@
+{
+    "tables": [
+        {
+            "id": "1",
+            "name": "table 1",
+            "capacity": "1",
+            "isAvailable": "false",
+            "location": "",
+            "default": "true"
+        },
+        {
+            "id": "2",
+            "name": "table 2",
+            "capacity": "2",
+            "isAvailable": "false",
+            "location": "",
+            "default": "true"
+        },
+        {
+            "id": "3",
+            "name": "table 3",
+            "capacity": "3",
+            "isAvailable": "false",
+            "location": "",
+            "default": "true"
+        },
+        {
+            "id": "4",
+            "name": "table 4",
+            "capacity": "4",
+            "isAvailable": "false",
+            "location": "",
+            "default": "true"
+        }
+    ],
+    "config": {
+        "defaultTables": [
+            {
+                "id": "1"
+            },
+            {
+                "id": "2"
+            },
+            {
+                "id": "3"
+            },
+            {
+                "id": "4"
+            }
+        ]
+    }
+}

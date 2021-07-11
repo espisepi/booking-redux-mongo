@@ -8,9 +8,9 @@ const TableList = ({tables}) => {
     return (
         <div>
             { tables?.length !== 0 && tables.map( table => (
-                <>
+                <div key={table.id}>
                 <h1>{table.name}</h1>
-                </>
+                </div>
             )) }
         </div>
     )

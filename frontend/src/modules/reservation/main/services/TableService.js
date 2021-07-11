@@ -13,3 +13,13 @@ export const searchTables = async ({ date }) => {
     }
 }
 
+export const findById = async ({ id }) => {
+    try {
+        const resFetch = await fetchWithoutToken(`tables/${id}`, 'GET' );
+        const res = await resFetch.json();
+        return res;
+    } catch (e) {
+        console.error(e);
+    }
+}
+

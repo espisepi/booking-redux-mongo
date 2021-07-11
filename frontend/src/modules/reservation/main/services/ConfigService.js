@@ -1,4 +1,6 @@
 import { fetchWithoutToken } from '../../utils/fetch';
+import { findById } from './TableService';
+import { tablesSanitize } from '../sanitize_data/tableSanitize';
 
 export const findOne = async () => {
     try {
@@ -6,7 +8,31 @@ export const findOne = async () => {
         const res = await resFetch.json();
         return res;
     } catch (e) {
-        console.log(e)
+        console.error(e)
+    }
+}
+
+export const getTablesDefault = async () => {
+    try {
+
+        const config = await findOne();
+        const defaultTables = config.defaultTables;
+
+        // https://stackoverflow.com/questions/40140149/use-async-await-with-array-map
+        const res = await Promise.all(
+            defaultTables.map( async id => {
+                const table = await findById(id);
+                return table;
+            })
+        );
+
+        // Sanitize data
+        const resSanitized = tablesSanitize( res );
+        
+
+        return resSanitized;
+    } catch (e) {
+        console.error(e);
     }
 }
 
@@ -16,7 +42,7 @@ export const save = async (config) => {
         const res = await resFetch.json();
         return res
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
 }
 

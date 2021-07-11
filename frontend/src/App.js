@@ -1,9 +1,9 @@
-import AppRouter from "./modules/reservation/main/routers/AppRouter";
+import AppReservation from "./modules/reservation/AppReservation";
 
 
 function App() {
   return (
-    <AppRouter />
+    <AppReservation />
   );
 }
 

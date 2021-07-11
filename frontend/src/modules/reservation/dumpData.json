@@ -1,10 +1,28 @@
 {
+
+  "reservations": [
+    {
+      "date": "2021-07-11T09:00:00",
+      "table": "1",
+      "name": "Juan Reserva",
+      "phone": "622121212",
+      "email": "juan@gmail.com"
+    },
+    {
+      "date": "2021-07-11T10:00:00",
+      "table": "2",
+      "name": "Miguel Reserva",
+      "phone": "922121212",
+      "email": "miguel@gmail.com"
+    }
+  ],
+
   "tables": [
     {
       "id": "1",
       "name": "table 1",
       "capacity": "1",
-      "isAvailable": "false",
+      "isAvailable": "true",
       "location": "",
       "default": "true"
     },
@@ -12,7 +30,7 @@
       "id": "2",
       "name": "table 2",
       "capacity": "2",
-      "isAvailable": "false",
+      "isAvailable": "true",
       "location": "",
       "default": "true"
     },
@@ -20,7 +38,7 @@
       "id": "3",
       "name": "table 3",
       "capacity": "3",
-      "isAvailable": "false",
+      "isAvailable": "true",
       "location": "",
       "default": "true"
     },
@@ -28,106 +46,9 @@
       "id": "4",
       "name": "table 4",
       "capacity": "4",
-      "isAvailable": "false",
+      "isAvailable": "true",
       "location": "",
       "default": "true"
-    },
-    {
-      "name": "dfsd",
-      "capacity": "434",
-      "isAvailable": "false",
-      "location": "",
-      "default": true,
-      "id": "uqV3bF2"
-    },
-    {
-      "name": "dfsd",
-      "capacity": "434",
-      "isAvailable": "false",
-      "location": "",
-      "default": true,
-      "id": "YZEZclu"
-    },
-    {
-      "name": "dfsd",
-      "capacity": "434",
-      "isAvailable": "false",
-      "location": "",
-      "default": true,
-      "id": "nyjlc9m"
-    },
-    {
-      "name": "jeje",
-      "capacity": "4",
-      "isAvailable": "false",
-      "location": "",
-      "default": true,
-      "id": "PJBYMKv"
-    },
-    {
-      "name": "",
-      "capacity": "4",
-      "isAvailable": "false",
-      "location": "",
-      "id": "wzV3Ka5"
-    },
-    {
-      "name": "",
-      "capacity": "4",
-      "isAvailable": "false",
-      "location": "",
-      "id": "rdT41mK"
-    },
-    {
-      "name": "dsfsdf",
-      "capacity": "4",
-      "isAvailable": "false",
-      "location": "",
-      "id": "QZw41r1"
-    },
-    {
-      "name": "",
-      "capacity": "4",
-      "isAvailable": "false",
-      "location": "",
-      "id": "hLHWvyG"
-    },
-    {
-      "name": "sds",
-      "capacity": "4",
-      "isAvailable": "false",
-      "location": "",
-      "id": "MpRpp_Y"
-    },
-    {
-      "name": "ewf",
-      "capacity": "42",
-      "isAvailable": "false",
-      "location": "",
-      "id": "SC0G4VI"
-    },
-    {
-      "name": "ewf",
-      "capacity": "42",
-      "isAvailable": "false",
-      "location": "",
-      "id": "51-G_o0"
     }
-  ],
-  "config": {
-    "defaultTables": [
-      {
-        "id": "1"
-      },
-      {
-        "id": "2"
-      },
-      {
-        "id": "3"
-      },
-      {
-        "id": "4"
-      }
-    ]
-  }
+  ]
 }

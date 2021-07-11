@@ -1,21 +1,34 @@
+import { formatDateTime } from '../../utils/dateUtils';
 import { fetchWithoutToken } from '../../utils/fetch';
-import { tablesSanitize } from '../sanitize_data/tableSanitize';
+import { tablesSanitize, tablesWithReservationSanitize } from '../sanitize_data/tableSanitize';
 
-// date: Date
-export const searchTables = async ( date ) => {
+
+/**
+ * @param {Date} date
+ */
+export const getReservations = async (date, time) => {
     try {
-        console.log('search Tables api called')
-        // const resFetch = await fetchWithoutToken('NOconfigNO', 'GET', date);
-        // const res = await resFetch.json();
-        // console.log(res);
-    } catch(e) {
-        // console.log(e)
-
+        const dateTime = formatDateTime(date, time);
+        const resFetch = await fetchWithoutToken(`reservations?date=${dateTime}`, 'GET' );
+        const res = await resFetch.json();
+        return res;
+    } catch (e) {
+        console.error(e);
     }
 }
 
-export const getTablesWithAvailableCheck = async () => {
-    console.log('entra')
+/**
+ * @param {Date} date
+ */
+export const getTablesWithAvailableCheck = async (date, time) => {
+    try {
+        const tables = await getTables();
+        const reservations = await getReservations(date, time);
+        const tablesSanitize = tablesWithReservationSanitize(tables, reservations);
+        return tablesSanitize;
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 export const getById = async ( id ) => {
@@ -58,4 +71,5 @@ export const createTable = async ( table ) => {
         console.error(e);
     }
 }
+
 

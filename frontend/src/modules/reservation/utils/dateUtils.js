@@ -17,3 +17,9 @@ export function formatDate( date ) {
 
     return dateFormat;
 }
+
+export function formatDateTime( date, time ) {
+    const datetime = `${date}T${time}:00`;
+    // const datenew = new Date(param)
+    return datetime;
+}

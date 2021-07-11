@@ -11,7 +11,7 @@ const TableListContainer = () => {
     const deleteTable = (id) => dispatch( tableActions.deleteTable(id) );
     const getTables = () => dispatch( tableActions.getTables() );
 
-    const {loading, tables} = useSelector( state => state.tableList );
+    const {loading, tables, error} = useSelector( state => state.tableList );
 
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const TableListContainer = () => {
 
     return (
         <div>
-            <TableList tables={tables} deleteTable={deleteTable} />
+            <TableList tables={tables} loading={loading} deleteTable={deleteTable} />
         </div>
     )
 }

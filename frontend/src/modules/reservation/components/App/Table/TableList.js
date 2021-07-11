@@ -1,10 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TableList = ({tables, deleteTable}) => {
+const TableList = ({tables, loading, error, deleteTable}) => {
+
+    if( loading ) { return <h1>Loading</h1> }
+
+    if( error ) { return <h1>Error: {error} </h1> }
 
     if(!Array.isArray(tables) || tables.length === 0 ) { return <h1>Tabla vacia</h1> }
-    
+
     return (
         <div>
             { tables?.length !== 0 && tables.map( table => (
@@ -13,7 +17,7 @@ const TableList = ({tables, deleteTable}) => {
                     <h1>{table.name}</h1>
                     <h4>capacity: {table.capacity}</h4>
                     { table?.reservation ? (<h4>Reservada</h4>) : (<h4>No Reservada</h4>)}
-                    <button type="button" onClick={ () => deleteTable(table.id) }>delete</button>
+                    { deleteTable && <button type="button" onClick={ () => deleteTable(table.id) }>delete</button> }
 
                 </div>
             )) }
@@ -35,7 +39,9 @@ TableList.propTypes = {
             email: PropTypes.string
         })
     })),
-    deleteTable: PropTypes.func.isRequired
+    loading: PropTypes.bool,
+    error: PropTypes.string,
+    deleteTable: PropTypes.func
 }
 
 export default TableList

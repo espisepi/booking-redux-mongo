@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import * as tableService from '../../main/services/TableService';
+import * as tableService from '../../../main/services/TableService';
 
 const TableFormContainer = ({}) => {
 

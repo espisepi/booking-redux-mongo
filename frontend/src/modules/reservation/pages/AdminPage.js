@@ -1,14 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableListContainer from '../containers/Table/TableListContainer'
-import TableFormContainer from '../containers/Table/TableFormContainer'
+import TableContainer from '../containers/Table/TableContainer'
 
 function AdminPage(props) {
     return (
         <div>
-            Admin page
-            <TableListContainer />
-            <TableFormContainer />
+            <TableContainer />
         </div>
     )
 }

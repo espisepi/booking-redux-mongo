@@ -10,6 +10,7 @@ const TableList = ({tables}) => {
             { tables?.length !== 0 && tables.map( table => (
                 <div key={table.id}>
                 <h1>{table.name}</h1>
+                <h4>capacity: {table.capacity}</h4>
                 </div>
             )) }
         </div>

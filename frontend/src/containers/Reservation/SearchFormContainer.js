@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import SearchForm from '../../components/App/Reservation/SearchForm';
-import { formatDate } from '../../helpers/dateHelper';
+import { formatDate } from '../../utils/dateUtils';
 import { searchTables } from '../../main/services/TableService';
 
 const SearchFormContainer = ({}) => {

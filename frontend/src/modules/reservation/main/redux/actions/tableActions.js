@@ -9,7 +9,12 @@ import {
     TABLE_UPDATE_REQUEST,
     TABLE_UPDATE_SUCCESS,
     TABLE_UPDATE_FAIL,
-    TABLE_UPDATE_RESET
+    TABLE_UPDATE_RESET,
+
+    TABLE_DELETE_REQUEST,
+    TABLE_DELETE_SUCCESS,
+    TABLE_DELETE_FAIL,
+    TABLE_DELETE_RESET,
 } from '../types/types';
 import * as tableService from '../../services/TableService';
 
@@ -58,6 +63,23 @@ const tableUpdateFail = (error) => {
     }
 }
 
+const tableDeleteRequest = () => {
+    return {
+        type: TABLE_DELETE_REQUEST
+    }
+}
+const tableDeleteSuccess = () => {
+    return {
+        type: TABLE_DELETE_SUCCESS
+    }
+}
+const tableDeleteFail = (error) => {
+    return {
+        type: TABLE_DELETE_FAIL,
+        payload: error
+    }
+}
+
 
 // Side effects --------------
 
@@ -93,5 +115,16 @@ export const updateTable = (table) => async (dispatch) => {
     } catch (e) {
         console.error(e);
         dispatch(tableUpdateFail(`error in updateTable action: ${e}`));
+    }
+}
+
+export const deleteTable = (id) => async (dispatch) => {
+    try {
+        dispatch(tableDeleteRequest());
+        await tableService.deleteTable(id);
+        dispatch(tableDeleteSuccess());
+    } catch (e) {
+        console.error(e);
+        dispatch(tableDeleteFail(`error in updateTable action: ${e}`));
     }
 }

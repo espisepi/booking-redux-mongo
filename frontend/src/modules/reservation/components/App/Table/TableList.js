@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TableList = ({tables}) => {
+const TableList = ({tables, deleteTable}) => {
 
     if(!Array.isArray(tables) || tables.length === 0 ) { return <h1>Tabla vacia</h1> }
     
@@ -9,9 +9,12 @@ const TableList = ({tables}) => {
         <div>
             { tables?.length !== 0 && tables.map( table => (
                 <div key={table.id}>
-                <h1>{table.name}</h1>
-                <h4>capacity: {table.capacity}</h4>
-                { table?.reservation ? (<h4>Reservada</h4>) : (<h4>No Reservada</h4>)}
+
+                    <h1>{table.name}</h1>
+                    <h4>capacity: {table.capacity}</h4>
+                    { table?.reservation ? (<h4>Reservada</h4>) : (<h4>No Reservada</h4>)}
+                    <button type="button" onClick={ () => deleteTable(table.id) }>delete</button>
+
                 </div>
             )) }
         </div>
@@ -31,7 +34,8 @@ TableList.propTypes = {
             phone: PropTypes.string,
             email: PropTypes.string
         })
-    }))
+    })),
+    deleteTable: PropTypes.func.isRequired
 }
 
 export default TableList

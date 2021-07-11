@@ -82,3 +82,13 @@ export const save = async ( table ) => {
         console.error(e);
     }
 }
+
+export const deleteTable = async ( id ) => {
+    try {
+        const resFetch = await fetchWithoutToken(`tables/${id}`, 'DELETE' );
+        const res = await resFetch.json();
+        console.log(res); // {}
+    } catch (e) {
+        console.error(e);
+    }
+}

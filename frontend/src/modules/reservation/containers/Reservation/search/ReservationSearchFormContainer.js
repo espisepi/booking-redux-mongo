@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchForm from '../../../components/App/Reservation/SearchForm';
 import { formatDate } from '../../../utils/dateUtils';
 // import * as tableService from '../../../main/services/TableService';
@@ -21,6 +21,11 @@ const ReservationSearchFormContainer = () => {
         tables: []
     });
 
+    useEffect(()=>{
+        const { date, time } = search;
+        getTablesWithAvailableCheck(date, time);
+    },[]);
+
     const onChange = (e) => {
         // console.log(`name: ${e.target.name} ||| value: ${e.target.value}`)
         setSearch({
@@ -31,16 +36,8 @@ const ReservationSearchFormContainer = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-
         const { date, time } = search;
-
         getTablesWithAvailableCheck(date, time);
-
-        // const searchTables = async () => {
-        //     const tables = await tableService.getTablesWithAvailableCheck(date, time)
-        //     console.log(tables);
-        // }
-        // searchTables(date)
     }
 
     return (

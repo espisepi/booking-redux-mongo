@@ -1,5 +1,7 @@
 import {
-    UPDATE_TABLES_AVAILABLES,
+    TABLE_AVAILABLES_REQUEST,
+    TABLE_AVAILABLES_SUCCESS,
+    TABLE_AVAILABLES_FAIL,
 
     TABLE_LIST_REQUEST,
     TABLE_LIST_SUCCESS,
@@ -23,19 +25,30 @@ import {
 
 
 const initialState = {
-    tablesAvailables: [],
+    tables: [],
     error: null,
     loading: false
 }
 
-export function TablesAvailablesReducer( state = initialState, action ) {
+export function TableAvailablesReducer( state = initialState, action ) {
     switch(action.type) {
-        case UPDATE_TABLES_AVAILABLES:
+        case TABLE_AVAILABLES_REQUEST:
             return {
-                ...state,
-                tablesAvailables: action.payload,
-                error: null,
-                loading: false
+                tables: [],
+                loading: true,
+                error: null
+            }
+        case TABLE_AVAILABLES_SUCCESS:
+            return {
+                tables: action.payload,
+                loading: false,
+                error: null
+            }
+        case TABLE_AVAILABLES_FAIL:
+            return {
+                tables: [],
+                loading: false,
+                error: action.payload
             }
         default:
             return state;
@@ -47,10 +60,7 @@ export const tableListReducer = ( state = { tables: [] }, action ) => {
         case TABLE_LIST_REQUEST:
           return { loading: true, tables: [] }
         case TABLE_LIST_SUCCESS:
-          return {
-            loading: false,
-            tables: action.payload
-          }
+          return { loading: false, tables: action.payload }
         case TABLE_LIST_FAIL:
           return { loading: false, error: action.payload }
         default:

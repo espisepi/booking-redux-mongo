@@ -1,5 +1,9 @@
 import {
-    UPDATE_TABLES_AVAILABLES,
+    // UPDATE_TABLES_AVAILABLES,
+
+    TABLE_AVAILABLES_REQUEST,
+    TABLE_AVAILABLES_SUCCESS,
+    TABLE_AVAILABLES_FAIL,
 
     TABLE_LIST_REQUEST,
     TABLE_LIST_SUCCESS,
@@ -8,7 +12,6 @@ import {
     TABLE_CREATE_REQUEST,
     TABLE_CREATE_SUCCESS,
     TABLE_CREATE_FAIL,
-    TABLE_CREATE_RESET,
 
     TABLE_UPDATE_ACTIVE,
     TABLE_UPDATE_REQUEST,
@@ -18,17 +21,34 @@ import {
 
     TABLE_DELETE_REQUEST,
     TABLE_DELETE_SUCCESS,
-    TABLE_DELETE_FAIL,
-    TABLE_DELETE_RESET,
+    TABLE_DELETE_FAIL
 } from '../types/types';
 import * as tableService from '../../services/TableService';
 
 // Action Creators ----------------
 
-const updateTablesAvailables = (tablesAvailables) => {
+// const updateTablesAvailables = (tablesAvailables) => {
+//     return {
+//         type: UPDATE_TABLES_AVAILABLES,
+//         payload: tablesAvailables
+//     }
+// }
+
+const tableAvailablesRequest = () => {
     return {
-        type: UPDATE_TABLES_AVAILABLES,
-        payload: tablesAvailables
+        type: TABLE_AVAILABLES_REQUEST
+    }
+}
+const tableAvailablesSuccess = (tables) => {
+    return {
+        type: TABLE_AVAILABLES_SUCCESS,
+        payload: tables
+    }
+}
+const tableAvailablesFail = (error) => {
+    return {
+        type: TABLE_AVAILABLES_FAIL,
+        payload: error
     }
 }
 
@@ -118,18 +138,16 @@ const tableDeleteFail = (error) => {
 
 // Side effects --------------
 
-export function getTablesAvailablesAction(date, time) {
-    return async (dispatch) => {
-        try {
-            const tables = await tableService.getTablesWithAvailableCheck(date, time);
-            dispatch( updateTablesAvailables(tables) );
-        } catch (e) {
-            console.error(e);
-            //dispatch( updateError(true) )
-        }
-
+export const getTablesAvailablesAction = (date, time) => async (dispatch) => {
+    try {
+        dispatch(tableAvailablesRequest());
+        const tables = await tableService.getTablesWithAvailableCheck(date, time);
+        dispatch(tableAvailablesSuccess(tables));
+    } catch (e) {
+        console.error(e);
+        dispatch(tableAvailablesFail(e));
     }
-}
+} 
 
 export const getTables = () => async (dispatch) => {
     try {
@@ -158,6 +176,7 @@ export const activeTable = (table) => async (dispatch) => {
     try {
         dispatch(tableUpdateActive(table));
     } catch (e) {
+        console.error(e);
         dispatch(tableUpdateFail(e));
     }
 }

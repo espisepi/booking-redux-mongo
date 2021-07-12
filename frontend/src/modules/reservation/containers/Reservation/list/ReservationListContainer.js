@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 function ReservationListContainer() {
 
-    const tablesAvailables = useSelector( state => state.tablesAvailables.tablesAvailables );
+    const tablesAvailables = useSelector( state => state.tableAvailables.tables );
 
     useEffect(()=>{
         // const getTables = async () => {
@@ -16,7 +16,7 @@ function ReservationListContainer() {
         // getTables();
     })
 
-    
+
 
     return (
         <div>

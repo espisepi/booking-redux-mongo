@@ -4,7 +4,7 @@ import TableList from '../../../components/App/Table/TableList';
 // Redux
 import { useSelector } from 'react-redux';
 
-function SearchedTableListContainer() {
+function ReservationListContainer() {
 
     const tablesAvailables = useSelector( state => state.tablesAvailables.tablesAvailables );
 
@@ -16,6 +16,8 @@ function SearchedTableListContainer() {
         // getTables();
     })
 
+    
+
     return (
         <div>
             <TableList tables={tablesAvailables} />
@@ -23,5 +25,5 @@ function SearchedTableListContainer() {
     )
 }
 
-export default SearchedTableListContainer
+export default ReservationListContainer
 

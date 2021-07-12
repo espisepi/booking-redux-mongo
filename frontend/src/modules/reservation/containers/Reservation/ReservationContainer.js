@@ -1,12 +1,12 @@
 import React from 'react';
 
-import SearchFormContainer from './form/SearchFormContainer';
-import SearchedTableListContainer from './list/SearchedTableListContainer';
+import ReservationSearchFormContainer from './search/ReservationSearchFormContainer';
+import SearchedTableListContainer from './list/ReservationListContainer';
 
 const ReservationContainer = () => {
     return (
         <div>
-            <SearchFormContainer />
+            <ReservationSearchFormContainer />
             <SearchedTableListContainer />
         </div>
     )

@@ -8,7 +8,7 @@ import * as tableActions from '../../../main/redux/actions/tableActions';
 import { useDispatch } from 'react-redux';
 
 
-const SearchFormContainer = () => {
+const ReservationSearchFormContainer = () => {
 
     const dispatch = useDispatch();
     const getTablesWithAvailableCheck = (date, time) => dispatch( tableActions.getTablesAvailablesAction(date, time) ); 
@@ -50,4 +50,4 @@ const SearchFormContainer = () => {
     )
 }
 
-export default SearchFormContainer
+export default ReservationSearchFormContainer

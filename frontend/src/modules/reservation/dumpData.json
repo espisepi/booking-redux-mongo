@@ -24,13 +24,6 @@
       "id": 6
     },
     {
-      "name": "wwwss",
-      "capacity": 4444,
-      "isAvailable": true,
-      "location": "",
-      "id": 16
-    },
-    {
       "name": "wwwee",
       "capacity": "455222",
       "isAvailable": true,
@@ -39,8 +32,8 @@
     },
     {
       "name": "name table",
-      "capacity": "4333",
-      "isAvailable": "false",
+      "capacity": 4333,
+      "isAvailable": true,
       "location": "",
       "id": 18
     },
